@@ -6,20 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
+            $table->string('name');                       // プロジェクト名
+            $table->text('description')->nullable();      // プロジェクト詳細
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('projects');
